@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>botão</title>
+    <style>
+        button{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="adicionar()"></button>
+    <script>
+        var numero = 0
+
+        function adicionar(){
+            numero++
+            render()
+        }
+        function render(){
+            document.querySelector("button").innerText = numero;
+        }
+        render()
+        </script>
+</body>
+</html>
