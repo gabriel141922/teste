@@ -23,19 +23,27 @@
     <div>
 
         <h1>contadores</h1>
-        <button onclick="adicionar()"></button>
+        <button onclick="adicionar()" id="bt1"></button>
+        <button onclick="adicionar2()" id="bt2"></button>
     </div>
     <script>
         var numero = 0
+        var numero2 = 0
 
         function adicionar(){
             numero++
             render()
         }
+
+        function adicionar2(){
+            numero2++
+            render()
+        }
         function render(){
-            document.querySelector("button").innerText ="total"+numero;
+            document.querySelector("#bt1").innerText="Total"+numero;
+            document.querySelector("#bt2").innerText="Total"+numero2;
         }
         render()
-        </script>
+    </script>
 </body>
 </html>
