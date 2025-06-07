@@ -1,49 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>botão</title>
-    <style>
-        body{
-            height: 100vh;
-            align-items: center;
-            justify-content: center;
-            display: flex;
-        }
-        button{
-            width: 100px;
-        }
-        h1{
-            color: red
-        }
-    </style>
-</head>
-<body>
-    <div>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="mydiv"></div>
 
-        <h1>contadores</h1>
-        <button onclick="adicionar()" id="bt1"></button>
-        <button onclick="adicionar2()" id="bt2"></button>
-    </div>
-    <script>
-        var numero = 0
-        var numero2 = 0
+    <script type="text/babel">
+      function Page() {
+        return (
+          <div>
+            <h1>Jogo</h1>
+            <Time nome="Flamengo" /> X <Time nome="Vasco" />
+            <Time nome="botafogo" /> X <Time nome="vitoria" />
+          </div>
+        );
+      }
 
-        function adicionar(){
-            numero++
-            render()
-        }
+      function Time(props) {
+        const [gols, setGols] = React.useState(0);
 
-        function adicionar2(){
-            numero2++
-            render()
+        function add() {
+          setGols(gols + 1);
         }
-        function render(){
-            document.querySelector("#bt1").innerText="Total"+numero;
-            document.querySelector("#bt2").innerText="Total"+numero2;
-        }
-        render()
+        return (
+          <button onClick={add}>
+            {props.nome} {gols}
+          </button>
+        );
+      }
+
+      const container = document.getElementById("mydiv");
+      const root = ReactDOM.createRoot(container);
+      root.render(<Page />);
     </script>
-</body>
+  </body>
 </html>
